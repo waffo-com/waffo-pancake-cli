@@ -1,0 +1,33 @@
+{
+  "name": "@waffo/pancake-cli",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Developer CLI for Waffo Pancake",
+  "type": "module",
+  "bin": { "pancake": "dist/index.js" },
+  "files": ["dist", "README.md", "SKILL.md"],
+  "repository": { "type": "git", "url": "git+https://github.com/waffo-com/waffo-pancake-cli.git" },
+  "homepage": "https://github.com/waffo-com/waffo-pancake-cli#readme",
+  "bugs": { "url": "https://github.com/waffo-com/waffo-pancake-cli/issues" },
+  "license": "MIT",
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test scripts/*.test.mjs",
+    "check": "npm run typecheck && npm test && npm run build",
+    "pack:release": "node scripts/pack.mjs",
+    "test:package": "node scripts/smoke-package.mjs",
+    "release:check": "node scripts/release-check.mjs",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run release:check"
+  },
+  "engines": { "node": ">=22.14.0" },
+  "dependencies": { "commander": "^12.0.0" },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.0"
+  }
+}
