@@ -24,7 +24,7 @@
     "prepublishOnly": "npm run release:check"
   },
   "engines": { "node": ">=22.14.0" },
-  "dependencies": { "commander": "^12.0.0" },
+  "dependencies": { "commander": "^15.0.0" },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "tsup": "^8.0.0",
