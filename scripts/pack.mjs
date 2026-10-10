@@ -9,7 +9,7 @@ for (const file of packed.files) {
     throw new Error(`Unexpected published file: ${file.path}`);
   }
 }
-for (const required of ["dist/index.js", "package.json", "README.md", "SKILL.md"]) {
+for (const required of ["dist/index.js", "package.json", "README.md", "SKILL.md", "LICENSE"]) {
   if (!packed.files.some(file => file.path === required)) throw new Error(`Missing ${required}`);
 }
 if (!readFileSync("dist/index.js", "utf8").startsWith("#!/usr/bin/env node")) throw new Error("Missing CLI shebang");

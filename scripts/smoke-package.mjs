@@ -17,7 +17,7 @@ try {
   npm(["install", "--global", "--prefix", prefix, "--ignore-scripts", "--no-audit", "--no-fund", archive], { cwd: temp, env });
   const bin = process.platform === "win32" ? join(prefix, "pancake.cmd") : join(prefix, "bin/pancake");
   const installed = process.platform === "win32"
-    ? run("cmd.exe", ["/d", "/s", "/c", `""${bin}" --version"`], { cwd: temp, env })
+    ? run("cmd.exe", ["/d", "/s", "/c", `""${bin}" --version"`], { cwd: temp, env, windowsVerbatimArguments: true })
     : run(bin, ["--version"], { cwd: temp, env });
   assert.equal(installed.trim(), metadata.version);
   console.log("Packed archive: npm exec (npx) and global executable passed.");
