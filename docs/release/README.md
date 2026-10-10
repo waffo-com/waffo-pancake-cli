@@ -61,4 +61,4 @@ The workflow relies on npm's OIDC setup. A green local test cannot prove remote 
 - Formula rejects altered bytes, wrong package/origin and prereleases; updater refuses downgrades.
 - Homebrew style, installation and formula tests on macOS/Linux when a stable package exists.
 
-Before first publication, the tap intentionally has no real formula. Its parser/unit tests can run immediately; real registry-to-Homebrew installation is pending the first stable release.
+Before first publication, the tap intentionally has no real formula. Tap CI builds the actual CLI source and installs its local archive through a temporary formula on macOS/Linux. Registry-to-Homebrew installation remains pending the first stable release.
